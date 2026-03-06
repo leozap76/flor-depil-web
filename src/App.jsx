@@ -21,6 +21,12 @@ const App = () => {
     return `https://wa.me/${whatsappNumber}?text=${msg}`;
   };
 
+  const whatsappNumberrostro = "542657565356";
+  const getWhatsAppLinkrostro = (servicio) => {
+    const msg = encodeURIComponent(`¡Hola! Me gustaría consultar por un turno para el servicio de: ${servicio}`);
+    return `https://wa.me/${whatsappNumberrostro}?text=${msg}`;
+  };
+
   const treatments = {
     corporales: [
       { name: "Masaje reductor", link: getWhatsAppLink("Masaje reductor") },
@@ -31,15 +37,15 @@ const App = () => {
       { name: "Masaje relajante", link: getWhatsAppLink("Masaje relajante") }
     ],
     faciales: [
-      { name: "Limpieza Facial Profunda", link: getWhatsAppLink("Limpieza Facial Profunda") },
-      { name: "Dermaplaning", link: getWhatsAppLink("Dermaplaning") },
-      { name: "Peeling", link: getWhatsAppLink("Peeling") },
-      { name: "Dermapen facial", link: getWhatsAppLink("Dermapen facial") },
-      { name: "NCTF", link: getWhatsAppLink("NCTF") },
-      { name: "Plasma Rico en Plaquetas", link: getWhatsAppLink("Plasma Rico en Plaquetas") },
-      { name: "Tec. en Estética: RF - EMS", link: getWhatsAppLink("Tec. en Estética: RF - EMS") },
-      { name: "Plasmapen", link: getWhatsAppLink("Plasmapen") },
-      { name: "Ultrasonido", link: getWhatsAppLink("Ultrasonido") }
+      { name: "Limpieza Facial Profunda", link: getWhatsAppLinkrostro("Limpieza Facial Profunda") },
+      { name: "Dermaplaning", link: getWhatsAppLinkrostro("Dermaplaning") },
+      { name: "Peeling", link: getWhatsAppLinkrostro("Peeling") },
+      { name: "Dermapen facial", link: getWhatsAppLinkrostro("Dermapen facial") },
+      { name: "NCTF", link: getWhatsAppLinkrostro("NCTF") },
+      { name: "Plasma Rico en Plaquetas", link: getWhatsAppLinkrostro("Plasma Rico en Plaquetas") },
+      { name: "Tec. en Estética: RF - EMS", link: getWhatsAppLinkrostro("Tec. en Estética: RF - EMS") },
+      { name: "Plasmapen", link: getWhatsAppLinkrostro("Plasmapen") },
+      { name: "Ultrasonido", link: getWhatsAppLinkrostro("Ultrasonido") }
     ]
   };
 
@@ -335,6 +341,7 @@ const App = () => {
         href="https://digitallab-web.vercel.app/#" 
         target="_blank"
         rel="noopener noreferrer"
+        translate="no"
         className="font-bold hover:text-[#c49283] transition-colors duration-300"
         style={{ color: '#8c8c8c' }}
       >
