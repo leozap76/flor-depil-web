@@ -50,9 +50,9 @@ const App = () => {
   };
 
   const staff = [
-    { name: "Flor", schedule: "Lunes a Viernes", phone: "2657-565356" },
+    { name: "Flor - Tratamientos faciales", schedule: "Lunes a Viernes", phone: "2657-565356" },
     { name: "Maricel", schedule: "Miércoles", phone: "266-5035505" },
-    { name: "Sandra", schedule: "Martes a Jueves", phone: "2657-580106" }
+    { name: "Sandra - Estética corporal", schedule: "Martes a Jueves", phone: "2657-580106" }
   ];
 
   return (
@@ -265,70 +265,83 @@ const App = () => {
 
       {/* Staff Section con estilo mejorado */}
       <section id="equipo" className="py-32 bg-stone-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
-            <div>
-              <h2 className="text-sm uppercase tracking-[0.4em] mb-4 opacity-50 font-bold">Nuestro Equipo</h2>
-              <h3 className="text-5xl font-serif mb-12">Expertas en tu Bienestar</h3>
-              <div className="space-y-10">
-                {staff.map((person, i) => (
-                  <div key={i} className="flex items-center gap-8 group">
-                    <div className="w-20 h-20 rounded-[2rem] flex items-center justify-center flex-shrink-0 transition-transform group-hover:rotate-6" style={{ backgroundColor: pinkDark }}>
-                      <User className="text-white w-8 h-8" />
-                    </div>
-                    <div>
-                      <h4 className="text-2xl font-bold mb-1">{person.name}</h4>
-                      <p className="text-stone-400 text-sm mb-3 uppercase tracking-widest">{person.schedule}</p>
-                      <div className="flex items-center gap-2 text-xl font-medium" style={{ color: pinkSoft }}>
-                        <Phone size={18} />
-                        <a href={`tel:${whatsappNumber}`} className="hover:underline transition-all decoration-1">{person.phone}</a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+  <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-1/2"></div>
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-24 items-center">
+      <div>
+        <h2 className="text-sm uppercase tracking-[0.4em] mb-4 opacity-50 font-bold">Nuestro Equipo</h2>
+        <h3 className="text-5xl font-serif mb-12">Expertas en tu Bienestar</h3>
+        <div className="space-y-10">
+          {staff.map((person, i) => (
+            <div key={i} className="flex items-center gap-8 group">
+              <div 
+                className="w-20 h-20 rounded-[2rem] flex items-center justify-center flex-shrink-0 transition-transform group-hover:rotate-6" 
+                style={{ backgroundColor: pinkDark }}
+              >
+                <User className="text-white w-8 h-8" />
               </div>
-            </div>
-
-            <div id="contacto" className="bg-white text-stone-900 p-12 md:p-16 rounded-[4rem] shadow-2xl relative">
-              <div className="absolute top-8 right-8 text-stone-100">
-                <Sparkles size={80} />
-              </div>
-              <h3 className="text-3xl font-serif mb-4">¿Lista para tu momento?</h3>
-              <p className="text-stone-500 mb-10 leading-relaxed font-medium">Te esperamos en nuestro exclusivo espacio en Villa Mercedes para brindarte una experiencia única.</p>
-              
-              <div className="space-y-6 mb-12">
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50">
-                  <MapPin className="text-stone-400" />
-                  <p className="text-sm font-bold">Las Heras 412, Villa Mercedes</p>
-                </div>
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 group hover:bg-stone-100 transition-colors">
-                  <Instagram className="text-stone-400 group-hover:text-pink-600 transition-colors" size={20} />
+              <div>
+                <h4 className="text-2xl font-bold mb-1">{person.name}</h4>
+                <p className="text-stone-400 text-sm mb-3 uppercase tracking-widest">{person.schedule}</p>
+                <div className="flex items-center gap-2 text-xl font-medium" style={{ color: pinkSoft }}>
+                  <Phone size={18} />
+                  {/* El enlace ahora usa el número específico de la persona */}
                   <a 
-                    href="https://www.instagram.com/sandraromero_estetica" 
+                    href={`https://wa.me/${person.phone.replace(/\D/g, '')}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-sm font-bold hover:underline"
+                    className="hover:underline transition-all decoration-1"
                   >
-                    @sandraromero_estetica
+                    {person.phone}
                   </a>
                 </div>
               </div>
-              
-              <a 
-                href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-6 rounded-3xl text-white font-black text-lg flex items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl"
-                style={{ backgroundColor: pinkDark }}
-              >
-                <Calendar size={24} />
-                SOLICITAR TURNO
-              </a>
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div id="contacto" className="bg-white text-stone-900 p-12 md:p-16 rounded-[4rem] shadow-2xl relative">
+        <div className="absolute top-8 right-8 text-stone-100">
+          <Sparkles size={80} />
+        </div>
+        <h3 className="text-3xl font-serif mb-4">¿Lista para tu momento?</h3>
+        <p className="text-stone-500 mb-10 leading-relaxed font-medium">
+          Te esperamos en nuestro exclusivo espacio en Villa Mercedes para brindarte una experiencia única.
+        </p>
+        
+        <div className="space-y-6 mb-12">
+          <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50">
+            <MapPin className="text-stone-400" />
+            <p className="text-sm font-bold">Las Heras 412, Villa Mercedes</p>
+          </div>
+          <div className="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 group hover:bg-stone-100 transition-colors">
+            <Instagram className="text-stone-400 group-hover:text-pink-600 transition-colors" size={20} />
+            <a 
+              href="https://www.instagram.com/sandraromero_estetica" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm font-bold hover:underline"
+            >
+              @sandraromero_estetica
+            </a>
           </div>
         </div>
-      </section>
+        
+        <a 
+          href={`https://wa.me/${whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-6 rounded-3xl text-white font-black text-lg flex items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl"
+          style={{ backgroundColor: pinkDark }}
+        >
+          <Calendar size={24} />
+          SOLICITAR TURNO
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       <footer className="py-16 text-center bg-stone-950">
        <div className="mt-8 pt-8 border-t border-stone-200 flex flex-col items-center gap-2">
